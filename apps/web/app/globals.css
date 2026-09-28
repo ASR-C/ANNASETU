@@ -1,0 +1,397 @@
+/* ── ANNASETU Light Green / Apple Green, Blue, Gray, White, and Black Design System ── */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Strict Palette Variables: Light Green / Apple Green, Blue, Gray, White, Black ── */
+:root {
+  /* Light Green / Apple Green */
+  --apple-50: #F0FDF4;
+  --apple-100: #DCFCE7;
+  --apple-300: #86EFAC;
+  --apple-400: #4ADE80;
+  --apple-500: #22C55E;
+  --apple-600: #16A34A;
+  --apple-700: #15803D;
+
+  /* Blue */
+  --blue-50: #EFF6FF;
+  --blue-100: #DBEAFE;
+  --blue-300: #93C5FD;
+  --blue-400: #60A5FA;
+  --blue-500: #3B82F6;
+  --blue-600: #2563EB;
+  --blue-700: #1D4ED8;
+
+  /* Gray */
+  --gray-50: #F8FAFC;
+  --gray-100: #F1F5F9;
+  --gray-200: #E2E8F0;
+  --gray-300: #CBD5E1;
+  --gray-400: #94A3B8;
+  --gray-500: #64748B;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1E293B;
+  --gray-900: #0F172A;
+
+  /* White & Black */
+  --white: #FFFFFF;
+  --black: #000000;
+  --dark-slate: #0F172A;
+
+  /* Surfaces */
+  --bg-page: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F1F5F9;
+
+  /* Backward Compatibility Aliases */
+  --terra-500: var(--apple-500);
+  --terra-600: var(--apple-600);
+  --basil-500: var(--apple-500);
+  --basil-600: var(--dark-slate);
+  --saffron-300: var(--blue-400);
+  --parchment-100: var(--gray-100);
+  --clay-800: var(--gray-900);
+  --clay-600: var(--gray-600);
+}
+
+/* ── Base Layer ── */
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    background-image: 
+      radial-gradient(at 15% 15%, rgba(74, 222, 128, 0.08) 0px, transparent 55%),
+      radial-gradient(at 85% 85%, rgba(59, 130, 246, 0.06) 0px, transparent 55%);
+    background-attachment: fixed;
+    color: var(--gray-900);
+    font-family: 'Source Sans 3', 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', 'Source Sans 3', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--gray-900);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--apple-500);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background-color: var(--apple-100);
+    color: var(--apple-900);
+  }
+}
+
+/* ── Component Layer ── */
+@layer components {
+  /* ── Clean Light Card ── */
+  .card-organic {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px -1px rgba(15, 23, 42, 0.06);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .card-organic:hover {
+    transform: translateY(-1.5px);
+    box-shadow: 0 8px 20px -3px rgba(15, 23, 42, 0.08);
+    border-color: #86EFAC;
+  }
+
+  .card-organic-interactive:hover {
+    border-color: #4ADE80;
+    box-shadow: 0 8px 22px -3px rgba(34, 197, 94, 0.15);
+  }
+
+  /* ── Dark Highlighted Box (Black / Deep Slate + Apple Green) ── */
+  .dark-highlight-box {
+    background: #0F172A;
+    border: 1.5px solid rgba(74, 222, 128, 0.4);
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    transition: all 0.2s ease;
+  }
+  .dark-highlight-box:hover {
+    border-color: rgba(74, 222, 128, 0.65);
+    box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(74, 222, 128, 0.18);
+  }
+
+  /* ── Hero Banner (Black / Slate with Apple Green & Blue Sheen) ── */
+  .hero-warm {
+    background: 
+      radial-gradient(circle at 85% 20%, rgba(74, 222, 128, 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 15% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 55%),
+      linear-gradient(135deg, #0B0F17 0%, #111827 50%, #0F172A 100%);
+    border-radius: 1.25rem;
+    border: 1.5px solid rgba(74, 222, 128, 0.35);
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.45);
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+  }
+
+  /* ── Tactile Button Press ── */
+  .btn-press {
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+  }
+  .btn-press:active {
+    transform: scale(0.975);
+  }
+
+  /* ── Primary Button (Apple Green) ── */
+  .btn-terra {
+    background: linear-gradient(135deg, #4ADE80 0%, #22C55E 55%, #16A34A 100%);
+    color: #052E16;
+    font-weight: 800;
+    border-radius: 0.75rem;
+    box-shadow: 0 3px 12px -2px rgba(34, 197, 94, 0.4);
+    transition: transform 0.12s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  }
+  .btn-terra:hover {
+    box-shadow: 0 6px 18px -2px rgba(34, 197, 94, 0.55), 0 0 12px rgba(74, 222, 128, 0.3);
+    filter: brightness(1.05);
+  }
+  .btn-terra:active {
+    transform: scale(0.975);
+  }
+
+  /* ── Secondary Button (Black / Slate with Apple Green Outline) ── */
+  .btn-basil {
+    background: #0F172A;
+    color: #4ADE80;
+    font-weight: 700;
+    border: 1.5px solid rgba(74, 222, 128, 0.4);
+    border-radius: 0.75rem;
+    box-shadow: 0 3px 10px -2px rgba(15, 23, 42, 0.3);
+    transition: transform 0.12s ease, box-shadow 0.15s ease;
+  }
+  .btn-basil:hover {
+    background: #1E293B;
+    border-color: rgba(74, 222, 128, 0.8);
+    color: #86EFAC;
+    box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.4), 0 0 10px rgba(74, 222, 128, 0.2);
+  }
+  .btn-basil:active {
+    transform: scale(0.975);
+  }
+
+  /* ── Blue Button ── */
+  .btn-blue {
+    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 55%, #2563EB 100%);
+    color: #FFFFFF;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    box-shadow: 0 3px 12px -2px rgba(59, 130, 246, 0.35);
+  }
+  .btn-blue:hover {
+    box-shadow: 0 6px 18px -2px rgba(59, 130, 246, 0.5);
+    filter: brightness(1.05);
+  }
+
+  /* ── Ghost / Outline Button (Clean Cool Gray) ── */
+  .btn-ghost {
+    background: transparent;
+    border: 1.5px solid #CBD5E1;
+    color: #0F172A;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+  .btn-ghost:hover {
+    border-color: #22C55E;
+    background: #F0FDF4;
+    color: #15803D;
+  }
+  .btn-ghost:active {
+    transform: scale(0.975);
+  }
+
+  /* ── Sub-Navigation Pill Tabs ── */
+  .subnav-container {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 1rem;
+    padding: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .subnav-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .subnav-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 0.625rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #475569;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .subnav-tab:hover {
+    color: #0F172A;
+    background: #F1F5F9;
+  }
+  .subnav-tab-active {
+    background: #0F172A !important;
+    color: #FFFFFF !important;
+    border-color: #22C55E !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2) !important;
+  }
+  .subnav-tab-active svg {
+    color: #4ADE80 !important;
+  }
+
+  /* ── Input Fields ── */
+  .input-warm {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.625rem;
+    border: 1.5px solid #CBD5E1;
+    background: #FFFFFF;
+    color: #0F172A;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .input-warm:focus {
+    outline: none;
+    border-color: #22C55E;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+  }
+  .input-warm::placeholder {
+    color: #94A3B8;
+  }
+
+  /* ── Badges ── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  .badge-terra {
+    background: #DCFCE7;
+    color: #14532D;
+    border: 1px solid #86EFAC;
+  }
+  .badge-basil {
+    background: #0F172A;
+    color: #4ADE80;
+    border: 1px solid rgba(74, 222, 128, 0.5);
+  }
+  .badge-saffron {
+    background: #EFF6FF;
+    color: #1D4ED8;
+    border: 1px solid #BFDBFE;
+  }
+  .badge-blue {
+    background: #EFF6FF;
+    color: #1D4ED8;
+    border: 1px solid #BFDBFE;
+  }
+  .badge-clay {
+    background: #F1F5F9;
+    color: #334155;
+    border: 1px solid #CBD5E1;
+  }
+
+  /* ── Alerts ── */
+  .alert-success {
+    background: #F0FDF4;
+    border: 1px solid #86EFAC;
+    color: #14532D;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1.125rem;
+  }
+  .alert-error {
+    background: #0F172A;
+    border: 1px solid #334155;
+    color: #F8FAFC;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1.125rem;
+  }
+  .alert-warning {
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #1E40AF;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1.125rem;
+  }
+
+  /* ── Stat Card (Clean White with Gray Border) ── */
+  .stat-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.875rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  }
+
+  /* ── Progress Bar (Apple Green) ── */
+  .progress-bar {
+    width: 100%;
+    height: 0.5rem;
+    background: #E2E8F0;
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4ADE80 0%, #22C55E 100%);
+    border-radius: 9999px;
+    transition: width 0.4s ease;
+  }
+
+  /* ── Modal Overlay ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 100;
+  }
+  .modal-panel {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}

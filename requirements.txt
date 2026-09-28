@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+python-multipart
+pytest
+pytest-asyncio
+aiosqlite
+pyjwt
+httpx
+supabase
+asyncpg
+psycopg2-binary
